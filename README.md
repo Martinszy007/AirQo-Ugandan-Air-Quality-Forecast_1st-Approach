@@ -1,39 +1,44 @@
-#Please read this before you run kernels 
+# Template Repo for ML Project
 
-1- RUN ANOTHERLGBMODEL.ipynb to get ANOTHERLGB.csv
+This template repo will give you a good starting point for your second project. Besides the files used for creating a virtual environment, you will find a simple example of how to build a simple model in a python script. This is maybe the simplest way to do it. We train a simple model in the jupyter notebook, where we select only some features and do minimal cleaning. The output is then stored in simple python scripts.
 
-2- RUN new_data_creation.ipynb TO get a new data ,Here is a Link to get the data  IT'S A PRIVATE DATA www.kaggle.com/dataset/198175af5d025f8e7e9d6f28f34b6d7ecfc58f242d4049bdc6b50462e5821b44
-#of course i will not share this link when i will  share the solution 
+The data used for this is: [coffee quality dataset](https://github.com/jldbc/coffee-quality-database).
 
-3-RUN submission1 to get submission1.csv
+---
+## Requirements and Environment
 
-4-RUN XGBOOST_notebook.ipynb to get subxgb.csv
+Requirements:
+- pyenv with Python: 3.9.8
 
-5-RUN _submission2.ipynb to get submission2.csv
+Environment: 
 
-6-RUN EKHERMOU7AWLA.ipynb to get ekher_mou7awla.csv
+For installing the virtual environment you can either use the Makefile and run `make setup` or install it manually with the following commands: 
 
-7-RUN indianda.ipynb TO get indiana.csv 
+```Bash
+pyenv local 3.9.8
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
+## Usage
 
-8-After runing those kernels you can run FINAL_BLEND.ipynb to get the finale_sub.csv 
+In order to train the model and store test data in the data folder and the model in models run:
 
+```bash
+#activate env
+source .venv/bin/activate
 
+python example_files/train.py  
+```
 
-## [On the Leaderboard](https://zindi.africa/competitions/airqo-ugandan-air-quality-forecast-challenge/leaderboard)
+In order to test that predict works on a test set you created run:
 
-Look for the team named : **Forecasters** <br>
-Rank : 12/501
+```bash
+python example_files/predict.py models/linear_regression_model.sav data/X_test.csv data/y_test.csv
+```
 
-## Authors
+## Limitations
 
-<div align='center'>
-
-| Name           |                     Zindi ID                     |                  Github ID               |
-|----------------|--------------------------------------------------|------------------------------------------|
-|Azer KSOURI     |[@plndz](https://zindi.africa/users/plndz)      |[@Az-Ks](https://github.com/Az-Ks)        |
-|Helmi Klai      |[@Klai](https://zindi.africa/users/Klai)             |[@Klaimohelmi](https://github.com/Klaimohelmi)      |
-|Muhamed TUO     |[@Muhamed_Tuo](https://zindi.africa/users/Muhamed_Tuo)  |[@NazarioR9](https://github.com/NazarioR9)|
-|Saurabh Kumar   |[@Saurabh502](https://zindi.africa/users/Saurabh502)          |
-
-</div>
+Development libraries are part of the production environment, normally these would be separate as the production code should be as slim as possible.
